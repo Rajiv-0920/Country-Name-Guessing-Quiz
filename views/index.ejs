@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/style.css">
+  <title>Country name guessing quiz</title>
+</head>
+
+<body>
+  <div class="container">
+    <div>
+      <h1>Which Country is this?</h1>
+      <span class="correct">Total Correct: <%- locals.score ? score : '0' %></span>
+    </div>
+    <span class="country-img"><%= question.flag %></span>
+    <%- console.log(question);%>
+    <form action="/submit" method="post">
+      <input type="text" name="answer" id="answer" autofocus autocomplete="off" maxlength="50" placeholder="Enter the country name">
+    </form>
+  </div>
+  <script>
+    let wasCorrect = "<%= locals.wasCorrect %>";
+    if (wasCorrect === "false") {
+      alert('Game over! Final best score: <%= locals.score %>! Click Ok to restart the quiz');
+      const anchor = document.createElement('a')
+      anchor.href = '/';
+      anchor.click();
+    }
+  </script>
+</body>
+
+</html>
