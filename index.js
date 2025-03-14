@@ -34,7 +34,7 @@ app.use(express.static("public"));
 app.get("/", (req, res) => {
     totalCorrect = 0;
     nextQuestion();
-    res.render("index.ejs", { question: currentQuestion });
+    res.render("index.ejs", { question: currentQuestion.flag });
 })
 
 app.post("/submit", (req, res) => {
@@ -46,7 +46,7 @@ app.post("/submit", (req, res) => {
     }
     nextQuestion();
     res.render("index.ejs", {
-        question: currentQuestion,
+        question: currentQuestion.flag,
         wasCorrect: isCorrect,
         score: totalCorrect,
     })

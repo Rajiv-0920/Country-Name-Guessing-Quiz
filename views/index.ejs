@@ -14,7 +14,7 @@
       <h1>Which Country is this?</h1>
       <span class="correct">Total Correct: <%- locals.score ? score : '0' %></span>
     </div>
-    <span class="country-img"><%= locals.question.flag %></span>
+    <span class="country-img"><%= locals.question %></span>
     <form action="/submit" method="post">
       <input type="text" name="answer" id="answer" autofocus autocomplete="off" maxlength="50" placeholder="Enter the country name">
     </form>
